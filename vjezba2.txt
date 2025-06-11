@@ -1,0 +1,53 @@
+ALTER TABLE predavanje
+ALTER mjesto_predavanja SET DEFAULT 'Ucionica 101';
+
+
+
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa,)
+	VALUES ('Ivan', 'Ivanić', 34, '56454656', 'M', '5454465467874', 'iivanic@gmail.com', 'Posušje 34');
+	
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa,)
+	VALUES ('Mate', 'Matić', 39, '56454626', 'M', '5454465467834', 'mmatic@gmail.com', 'Posušje 43');
+    
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa,)
+	VALUES ('Ana', 'Matić', 29, '55454626', 'Z', '5454665467834', 'amatic@gmail.com', 'Posušje 42');
+
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa,)
+	VALUES ('Iva', 'Perić', 25, '46454626', 'Z', '1454465467834', 'iperic@gmail.com', 'Posušje 12');
+
+
+----------------------------------------------------------
+MUSKE OSOBE STARIJE OD 25
+SELECT * 
+  FROM `korisnik` 
+ WHERE spol = 'M' AND godine > 25
+
+----------------------------------------------------------
+ZENSKE OSOBE MLADJE OD 20
+SELECT * 
+  FROM `korisnik` 
+ WHERE spol = 'Z' AND godine < 20;
+
+----------------------------------------------------------
+muske iznad 25 ili zenske starije od 20
+SELECT * 
+  FROM `korisnik` 
+ WHERE (spol = 'M' 
+   AND godine > 34) 
+    OR (spol = 'Z' 
+   AND godine > 20)
+
+----------------------------------------------------------
+ALTER TABLE predavanje
+	ADD COLUMN tip_profesora CHARACTER(1) NOT NULL DEFAULT 'D',
+	ADD CONSTRAINT tip_profesora_chk CHECK (tip_profesora IN ('D' , 'G')); 
+------------------------------------------------------------
+ALTER TABLE korisnik
+	ADD COLUMN tip_korisnika CHARACTER(1) NOT NULL DEFAULT 'F',
+	ADD CONSTRAINT tip_korisnika_chek CHECK (tip_korisnika IN ('F' , 'P' , 'N')); 
+-------------------------------------------------------------
+
+UPDATE predavanje
+SET tip_profesora = 'G'
+WHERE ID IN (4,5)
+
