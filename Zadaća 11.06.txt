@@ -1,0 +1,62 @@
+Tablicu korisnik proširiti s kolonom aktivan koja je tekstualnog zapisa i početna vrijednost joj je 'Da', a moguće vrijednosti su 'Da', 'Ne'
+---------------------------------------------------------------------------------------------------------------------------------------------
+ALTER TABLE korisnik
+    ADD COLUMN aktivan VARCHAR(2) NOT NULL DEFAULT 'DA'
+    CHECK (aktivan IN ('DA', 'NE'));
+---------------------------------------------------------------------------------------------------------------------------------------------
+Tablica korisnik mora sadržavati :
+  minimalno 3 muške osobe koje su fizičke osobe, i imaju preko 35 godina od kojih je barem jedna neaktivna
+  minimalno 4 ženske osobe koje su pravne osobe od kojih su barem 2 neaktivne
+-----------
+Muske osobe
+-----------
+
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa, tip_korisnika, aktivan)
+	VALUES ('Mate', 'Matić', 37, '333333333', 'M', '1233456789123', 'm.matic1@gmail.com', 'Posušje bb', 'F', 'DA');
+
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa, tip_korisnika, aktivan)
+	VALUES ('Jure', 'Jurić', 42, '444444444', 'M', '1234456789123', 'j.juric1@gmail.com', 'Posušje bb', 'F', 'NE');
+    
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa, tip_korisnika, aktivan)
+	VALUES ('Marko', 'Markić', 36, '555555555', 'M', '1234556789123', 'm.markic1@gmail.com', 'Posušje bb', 'F', 'DA');
+
+------------
+Zenske osobe
+------------
+
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa, tip_korisnika, aktivan)
+	VALUES ('Ana', 'Anić', 28, '666666666', 'Z', '1234566789123', 'a.anic1@gmail.com', 'Posušje bb', 'P', 'NE');
+    
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa, tip_korisnika, aktivan)
+	VALUES ('Klara', 'Klarić', 24, '777777777', 'Z', '1234567789123', 'k.klaric1@gmail.com', 'Posušje bb', 'P', 'NE');
+    
+INSERT INTO korisnik (ime, prezime, godine, telefon, spol, JMBG, email, adresa, tip_korisnika, aktivan)
+	VALUES ('Mara', 'Marić', 32, '888888888', 'Z', '1234567889123', 'm.maric1@gmail.com', 'Posušje bb', 'P', 'DA');
+
+--------------------------------
+PROMJENA KORISNIAK SA 'N' na 'P'
+--------------------------------
+
+UPDATE korisnik
+	SET tip_korisnika = 'P'
+    WHERE ID = 4
+-------------------------------------------------------------------------------------------------------------------------------------------
+Tablica predavanje mora sadržavati:
+  minimalno 2 gostujuća profesora koji imaju mjesto predavanja Ucionica 205
+
+
+INSERT INTO predavanje (naziv, profesor, datum_predavanja, opis, mjesto_predavanja, tip_profesora)
+	VALUES ('Matematika', 'Ana Anić','2025-06-23', 'Uvodno predavanje iz matematike', 'Ucionica 205', 'G');
+    
+INSERT INTO predavanje (naziv, profesor, datum_predavanja, opis, mjesto_predavanja, tip_profesora)
+	VALUES ('Informatika', 'Marko Markić','2025-06-22', 'Uvodno predavanje iz informatike', 'Ucionica 205', 'G');
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+mora imati minimalno 2 predavanja u budućnosti
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO predavanje (naziv, profesor, datum_predavanja, opis, mjesto_predavanja, tip_profesora)
+	VALUES ('Matematika', 'Ana Anić','2025-06-27', 'Polinomi', 'Ucionica 205', 'G');
+
+INSERT INTO predavanje (naziv, profesor, datum_predavanja, opis, mjesto_predavanja, tip_profesora)
+	VALUES ('Informatika', 'Marko Markić','2025-06-30', 'Word, Excel i Powerpoint', 'Ucionica 205', 'G');
