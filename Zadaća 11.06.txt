@@ -60,3 +60,26 @@ INSERT INTO predavanje (naziv, profesor, datum_predavanja, opis, mjesto_predavan
 
 INSERT INTO predavanje (naziv, profesor, datum_predavanja, opis, mjesto_predavanja, tip_profesora)
 	VALUES ('Informatika', 'Marko Markić','2025-06-30', 'Word, Excel i Powerpoint', 'Ucionica 205', 'G');
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+ANALIZA PODATAKA
+-------------------------------------------------------------------------------------------------------------------------------------------
+Muške fizicke osobe iznad 35 godina
+SELECT * FROM korisnik
+WHERE godine > 35
+  AND tip_korisnika = 'F'
+  AND spol = 'M';
+-------------------------------------------------------------------------------------------------------------------------------------------
+Zenske prave osobe 2 neatkivne
+
+SELECT *
+	FROM korisnik
+	WHERE spol = 'Z' 
+	AND tip_korisnika = 'P'	
+    AND aktivan = 'NE'
+-----------
+SELECT * 
+	FROM predavanje 
+	WHERE tip_profesora = 'G' 
+	AND mjesto_predavanja = 'Ucionica 205';
