@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<title>Seminar Schedule</title>
+<style>
+  body {
+    font-family: "Times New Roman", serif;
+    background: #f9f9f9;
+    margin: 30px;
+  }
+
+  table {
+    border: 2px solid black; /* vanjski okvir */
+    border-spacing: 4px; /* razmak između ćelija */
+    margin: 0 auto;
+    width: 80%;
+    background: white;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 10px 12px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .big { font-size: 28px; font-weight: bold; }
+  .header { font-weight: bold; }
+
+  /* boje */
+  .orange { background: orange; }
+  .blue   { background: blue; color: white; }
+  .green  { background: green; color: white; }
+
+  .left { text-align: left; }
+</style>
+</head>
+<body>
+<table>
+
+  <!-- prvi red -->
+  <tr>
+    <td rowspan="3" class="big">day</td>
+    <td colspan="3" class="header">seminar</td>
+    
+  </tr>
+  <tr>
+    <td colspan="2" class="header">schedule</td>
+    <td rowspan="2" class="header">topic</td>
+  </tr>
+  <tr>
+    <td class="header">begin</td>
+    <td class="header">end</td>
+  </tr>
+
+  <!-- Monday -->
+  <tr>
+    <td rowspan="2">Monday</td>
+    <td rowspan="2" class="orange">8:00 a.m.</td>
+    <td rowspan="2" class="blue">5:00 p.m.</td>
+    <td class="left">Introduction to XML</td>
+  </tr>
+  <tr>
+    
+    <td class="left">Validity: DTD and Relax NG</td>
+  </tr>
+
+  <!-- Tuesday -->
+  <tr>
+    <td rowspan="3">Tuesday</td>
+    <td class="orange">8:00 a.m.</td>
+    <td class="orange">11:00 a.m.</td>
+    <td class="left">XPath</td>
+  </tr>
+  <tr>
+    <td class="orange">11:00 a.m.</td>
+    <td class="green">2:00 p.m.</td>
+    <td rowspan="2" class="left">XSL Transformations</td>
+  </tr>
+  <tr>
+    <td class="green">2:00 p.m.</td>
+    <td class="blue">5:00 p.m.</td>
+  </tr>
+
+  <!-- Wednesday -->
+  <tr>
+    <td>Wednesday</td>
+    <td class="orange">8:00 a.m.</td>
+    <td class="green">12:00 p.m.</td>
+    <td class="left">XSL Formatting Objects</td>
+  </tr>
+
+</table>
+</body>
+</html>
